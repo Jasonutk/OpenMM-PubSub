@@ -1,0 +1,4 @@
+export PATH=/local_scratch/miniconda3/bin:$PATH 
+source activate testenv
+export FLASK_APP=server.py
+python3 -m flask run

@@ -1,0 +1,22 @@
+#!/bin/bash 
+
+# set up the Miniconda 
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+
+# export PATH=/local_scratch/jliang7/miniconda3/bin:$PATH 
+
+# set up the Miniconda Environment 
+export PATH=/local_scratch/miniconda3/bin:$PATH 
+conda create -n testenv -c omnia openmm 
+source activate testenv
+export FLASK_APP=server.py
+pip install flask
+pip install flask-uploads
+pip install flask_sqlalchemy 
+pip install httplib2 
+
+# download the server and environment 
+git clone https://github.com/ParkerDiamond/OpenMM-PubSub.git  
+
